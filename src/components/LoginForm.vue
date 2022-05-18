@@ -54,6 +54,8 @@ export default {
         };
         const { data } = await loginUser(userData);
         // 메인 페이지로 이동
+        console.log(data.token);
+        this.$store.commit("setToken", data.token);
         this.$store.commit("setUsername", data.user.username);
         this.$router.push("/main");
         console.log(data.user.username);
