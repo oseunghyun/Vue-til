@@ -1,11 +1,9 @@
 <template>
-  <ul>
-    <li>
-      <div class="post-title">{{ postItem.title }}</div>
-      <div class="port-content">{{ postItem.contents }}</div>
-      <div class="port-time">{{ postItem.createdAt }}</div>
-    </li>
-  </ul>
+  <li>
+    <div class="post-title">{{ postItem.title }}</div>
+    <div class="post-contents">{{ postItem.contents }}</div>
+    <div class="post-time">{{ postItem.createdAt }}</div>
+  </li>
 </template>
 
 <script>
