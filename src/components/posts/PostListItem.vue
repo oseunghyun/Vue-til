@@ -4,19 +4,30 @@
     <div class="post-contents">{{ postItem.contents }}</div>
     <div class="post-time">
       {{ postItem.createdAt }}
-      <i class="icon icon-md-create"></i>
-      <i class="icon icon-md-trash"></i>
+      <i class="icon ion-md-create"></i>
+      <i class="icon ion-md-trash" @click="deleteItem"></i>
     </div>
   </li>
 </template>
 
 <script>
+import { deletePost } from "@/api/posts";
+
 export default {
   props: {
     postItem: {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    async deleteItem() {
+      if (confirm("정말 삭제하시겠습니까?")) {
+        await deletePost(this.postItem._id);
+        this.$emit("refresh");
+      }
+    },
+    // console.log("deleted");
   },
 };
 </script>
