@@ -23,19 +23,20 @@
           로그인
         </button>
       </form>
-      <p class="log">{{ this.logMessage }}</p>
+      <p class="log">{{ logMessage }}</p>
     </div>
   </div>
 </template>
 
 <script>
 import { validateEmail } from "@/utils/validation";
-
 export default {
   data() {
     return {
+      // form values
       username: "",
       password: "",
+      // log
       logMessage: "",
     };
   },
@@ -56,8 +57,8 @@ export default {
         this.$router.push("/main");
       } catch (error) {
         // 에러 핸들링할 코드
-        console.log(error.response.data);
-        this.logMessage = error.response.data;
+        console.log(error);
+        this.logMessage = error;
       } finally {
         this.initForm();
       }

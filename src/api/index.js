@@ -15,5 +15,10 @@ function createInstanceWithAuth(url) {
   return setInterceptors(instance);
 }
 
-export const instance = createInstance;
+export const instance = createInstance();
 export const posts = createInstanceWithAuth("posts");
+
+// CREATE - posts
+// POST - posts
+// PUT - posts {id}
+// DELETE - posts {id}
